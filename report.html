@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PPT-style Presentation with Images & Video</title>
+  <style>
+    :root{
+      --bg:#f5ebd0;
+      --card:#f3e5bc;
+      --accent:#d9a25f;
+      --muted:#7b6545;
+      --text:#2e2418;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
+    .stage{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;}
+    .ppt{width:min(1200px,98%);height:min(850px,95%);background:var(--card);border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);position:relative;overflow:hidden;display:flex;flex-direction:column;}
+    .slides-viewport{flex:1;position:relative;overflow:hidden}
+    .slides{height:100%;display:flex;transition:transform 450ms cubic-bezier(.22,.9,.27,1);}
+    .slide{min-width:100%;height:100%;box-sizing:border-box;padding:60px;display:flex;flex-direction:column;justify-content:center;gap:20px;}
+    .slide-1{background:#f8eed6}
+    .slide-2{background:#f6e2b6}
+    .slide-3{background:#f2d9a0}
+    .slide-4{background:#f5deb3}
+    .slide-5{background:#faebd7}
+    h1{font-size:56px;margin:0 0 8px 0;letter-spacing:-0.5px;color:var(--text)}
+    p.lead{margin:0;color:var(--muted);font-size:36px;max-width:100%}
+
+    /* Image Styles */
+    .full-image img{width:100%;height:100%;object-fit:cover;border-radius:16px;}
+    .image-text{display:flex;align-items:center;gap:24px;}
+    .image-text img{width:60%;height:100%;object-fit:cover;border-radius:16px;}
+    .image-text .text{width:40%;}
+    .image-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+    .image-grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;}
+
+    iframe{width:100%;height:500px;border:none;border-radius:12px;}
+
+    .btn{background:var(--accent);border:none;padding:12px 18px;border-radius:8px;cursor:pointer;color:#fff;display:inline-flex;align-items:center;gap:8px;transition:0.2s;font-size:16px}
+    .btn:hover{background:#b98242}
+    .btn:active{transform:translateY(1px)}
+    .btn svg{width:18px;height:18px}
+    .bottom-bar{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-top:2px solid rgba(0,0,0,0.05);background:#f3e1b8;gap:20px;}
+    .dots{display:flex;gap:8px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;border:none}
+    .dot.active{width:36px;border-radius:999px;background:var(--accent)}
+    .counter{color:var(--muted);font-weight:600}
+    .bottom-controls{display:flex;align-items:center;gap:12px;}
+    .kbd{background:rgba(0,0,0,0.05);padding:6px 8px;border-radius:6px;font-size:13px;color:var(--muted);border:1px solid rgba(0,0,0,0.05)}
+    @media (max-width:720px){h1{font-size:32px}.ppt{height:88vh}.lead{max-width:100%}}
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="ppt" role="application" aria-label="Presentation">
+      <div class="slides-viewport">
+        <div class="slides" id="slides">
+
+          <!-- Text Intro -->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">GENERAL EDUCATION ELECTIVE TO:<br>PHILIPPINE POPULAR CULTURE</h1>
+            <p class="lead" style="text-align: center;">PART 2 UNIT V GROUP 6 REPORT - FACE SWAP BSCS 1-B</p>
+            <p class="lead" style="text-align: center;">RENATO T. TORRERES, PH.D. PROFESSOR</p>
+            <p style="margin:0;color:var(--muted);font-size:20px;max-width:100%;text-align: center;">REPORTED BY: GERALD E. VILLARIAS</p>
+          </section>
+
+          <!--Slide 1-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">FACE SWAP</h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+               <strong>Face swap</strong> is a digital manipulation process in which one person’s facial identity is substituted with another’s in images or videos. At its core, this involves detecting facial landmarks, aligning them, and either blending textures (traditional image editing) or generating realistic substitutes using deep learning models (deepfakes). Unlike simple overlays, AI-driven face swaps can preserve expressions, lighting, and head movement with near-photorealism.
+            </p>
+          </section>
+
+          <!--Slide 2-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">KEY COMPONENTS</h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+                1. <strong>Computer Vision&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br>
+                2. <strong>Types of Face Swapping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br>
+                3. <strong>Applications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><br>
+                4. <strong>Risks & Ethical Considerations</strong><br>
+            </p>
+          </section>
+
+          <!--Slide 3-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">Technological Basis<br><br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+                <strong>Computer Vision</strong> - Is responsible for detecting and analyzing the faces — it finds the position of facial features such as the eyes, nose, and mouth, and tracks them as the face moves.
+            </p>
+          </section>
+
+          <!--Slide 4-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">How it works?<br><br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: left;">
+                ● <strong>Image Capture</strong> – The computer takes a picture or video frame.<br>
+                ● <strong>Processing</strong> – It converts the image into data (pixels and numbers).<br>
+                ● <strong>Analysis</strong> – Using algorithms or AI models, it identifies patterns, shapes, or objects.<br>
+                ● <strong>Decision</strong> – It performs an action based on what it “sees” (like labeling a cat or detecting movement).<br>
+            </p>
+          </section>
+
+          <!--Slide 5-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">Examples:<br><br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: left;">
+                ● A phone camera detecting your face to unlock (face recognition).<br>
+                ● Self-driving cars recognizing traffic lights and pedestrians.<br>
+                ● A security system identifying objects or intruders from a CCTV feed.<br>
+                ● Apps that can count steps, scan barcodes, or translate text from images.<br>
+            </p>
+          </section>
+
+          <!-- Multiple Images Slide - 6 -->
+          <section class="slide slide-4" data-index="3" aria-hidden="true">
+            <h1>Example pictures</h1>
+            <div class="image-grid">
+              <img src="fr.webp" alt="img1">
+              <img src="sd.webp" alt="img2">
+              <img src="cv.png" alt="img3">
+              <img src="bc.webp" alt="img4">
+            </div>
+          </section>
+
+
+          <!--Slide 7-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">Technological Basis<br><br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+                <strong>Machine learning</strong> - Is used to learn the unique patterns and details of each face. By training on many face images, it learns how to generate, match, and blend one person’s facial expressions and features onto another person’s head.
+            </p>
+          </section>
+
+
+          <!--Slide 8-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">How it works?<br></h1>
+            <p style="margin:0;color:var(--muted);font-size:33.5px;max-width:100%;text-align: left;">
+                ● <strong>Face Detection & Alignment</strong> – The system detects both faces (source and target) and aligns them using facial landmarks (eyes, nose, mouth, jawline).<br>
+                ● <strong>Face Replacement / Warping</strong> – The source face is reshaped or warped to fit the target’s head shape and angle.<br>
+                ● <strong>Rendering (Final Output Creation)</strong> – This is where rendering tools come in. They combine and polish the image<br>
+                ● <strong>Post-Processing</strong> – Some systems add extra steps like anti-aliasing, motion blur correction, or fine-tuning with neural filters for more realism.<br>
+            </p>
+          </section>
+
+          <!--Slide 9-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">Examples:<br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+                ● OpenCV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                ● Dlib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                ● Blender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                ● DeepFaceLab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                ● Unreal Engine / Unity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            </p>
+          </section>
+
+          <!-- Multiple Images Slide - 10 -->
+          <section class="slide slide-4" data-index="3" aria-hidden="true">
+            <h1>Example pictures</h1>
+            <div class="image-grid">
+              <img src="cb.png" alt="img1">
+              <img src="dl.webp" alt="img2">
+              <img src="bd.webp" alt="img3">
+              <img src="de.webp" alt="img4">
+              <img src="ue.webp" alt="img4">
+            </div>
+          </section>
+          
+
+
+          <!--Slide 8-->
+          <section class="slide slide-1" data-index="0" aria-hidden="false">
+            <h1 style="text-align: center;">Technological Basis<br><br></h1>
+            <p style="margin:0;color:var(--muted);font-size:36px;max-width:100%;text-align: center;">
+                <strong>Rendering Tools</strong> - Are software components or algorithms that generate the final realistic visual output after the face has been detected, aligned, and replaced. These tools ensure that the swapped face looks natural, seamlessly integrated, and consistent with lighting, angles, and expressions of the original image or video.
+            </p>
+          </section>
+s
+
+
+          <!-- Whole Image Slide -->
+          <section class="slide slide-2 full-image" data-index="1" aria-hidden="true">
+            <img src="https://picsum.photos/1200/800?random=1" alt="Full Image Example">
+          </section>
+
+          <!-- Image with Text Outside (Left) -->
+          <section class="slide slide-3 image-text" data-index="2" aria-hidden="true">
+            <img src="https://picsum.photos/800/600?random=2" alt="Image with text">
+            <div class="text">
+              <h1>Image with Description</h1>
+              <p class="lead">The image is shown on the right, while the explanatory text appears on the left. This layout works well for highlighting a topic with supporting visuals.</p>
+            </div>
+          </section>
+
+          <!-- Multiple Images Slide -->
+          <section class="slide slide-4" data-index="3" aria-hidden="true">
+            <h1>Gallery — Multiple Images</h1>
+            <div class="image-grid">
+              <img src="https://picsum.photos/400/300?random=3" alt="img1">
+              <img src="https://picsum.photos/400/300?random=4" alt="img2">
+              <img src="https://picsum.photos/400/300?random=5" alt="img3">
+              <img src="https://picsum.photos/400/300?random=6" alt="img4">
+            </div>
+          </section>
+
+          <!-- Video Slide -->
+          <section class="slide slide-5" data-index="4" aria-hidden="true">
+            <h1>Embedded Video Example</h1>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="bottom-bar">
+        <div class="bottom-controls">
+          <button class="btn" id="prevBtn" title="Previous slide" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Prev
+          </button>
+
+          <button class="btn" id="nextBtn" title="Next slide" aria-label="Next slide">
+            Next
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+
+          <div class="kbd">← / →</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="dots" id="dots" role="tablist" aria-label="Slide navigation"></div>
+          <div class="counter" id="counter">1 / 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const slidesEl = document.getElementById('slides');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsContainer = document.getElementById('dots');
+      const counter = document.getElementById('counter');
+
+      let index = 0;
+      const total = slides.length;
+
+      slides.forEach((s,i)=>{
+        const d = document.createElement('button');
+        d.className = 'dot';
+        d.setAttribute('aria-label', 'Go to slide ' + (i+1));
+        d.setAttribute('data-index', i);
+        d.addEventListener('click', ()=>goTo(i));
+        dotsContainer.appendChild(d);
+      });
+
+      const dots = Array.from(dotsContainer.children);
+
+      function update(){
+        slidesEl.style.transform = `translateX(${-index * 100}%)`;
+        slides.forEach((s,i)=> s.setAttribute('aria-hidden', i!==index));
+        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
+        counter.textContent = `${index+1} / ${total}`;
+        prevBtn.disabled = index===0;
+      }
+
+      function prev(){ if(index>0){ index--; update(); } }
+      function next(){ if(index<total-1){ index++; update(); } else { index = 0; update(); } }
+      function goTo(i){ index = Math.max(0, Math.min(total-1, i)); update(); }
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') prev();
+        if(e.key === 'ArrowRight') next();
+      });
+
+      let touchStartX = null;
+      slidesEl.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; });
+      slidesEl.addEventListener('touchend', (e)=>{
+        if(touchStartX === null) return;
+        const delta = e.changedTouches[0].clientX - touchStartX;
+        if(Math.abs(delta) > 40){ if(delta>0) prev(); else next(); }
+        touchStartX = null;
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>
